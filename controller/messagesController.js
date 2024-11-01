@@ -19,8 +19,18 @@ const getNewMessage = (req, res) => {
   res.render('form');
 }
 
+const postNewMessage = (req, res) => {
+  messages.push({
+    text: req.body.message,
+    user: req.body.name,
+    date: new Date()
+  })
+
+  res.redirect('/messages')
+}
 
 module.exports = {
   getMessages,
-  getNewMessage
+  getNewMessage,
+  postNewMessage
 }
