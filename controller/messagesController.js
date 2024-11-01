@@ -12,7 +12,7 @@ const messages = [
 ];
 
 const getMessages = (req, res) => {
-  res.render('index', { messages: messages });
+  res.render('messages', { messages: messages });
 }
 
 const getNewMessage = (req, res) => {

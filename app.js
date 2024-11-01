@@ -13,8 +13,8 @@ app.set('view engine', 'ejs');
 app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/messages', messageRouter);
 app.use('/', indexRouter);
+app.use('/messages', messageRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
