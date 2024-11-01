@@ -1,6 +1,8 @@
 require('dotenv').config()
 const express = require('express');
 const path = require('node:path');
+const messageRouter = require('./routes/messagesRouter');
+const indexRouter = require('./routes/indexRouter')
 
 const app = express();
 
@@ -10,22 +12,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(assetsPath));
 
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date()
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date()
-  }
-];
-
-app.get('/', (req, res) => {
-  res.render('index', { messages: messages });
-})
+app.use('/messages', messageRouter);
+app.use('/', indexRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
