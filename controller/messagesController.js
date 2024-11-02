@@ -2,12 +2,14 @@ const messages = [
   {
     text: "Hi there!",
     user: "Amando",
-    added: new Date()
+    added: new Date(),
+    id: crypto.randomUUID()
   },
   {
     text: "Hello World!",
     user: "Charles",
-    added: new Date()
+    added: new Date(),
+    id: crypto.randomUUID()
   }
 ];
 
@@ -18,6 +20,7 @@ const getMessages = (req, res) => {
 const getNewMessage = (req, res) => {
   res.render('form');
 }
+
 
 const postNewMessage = (req, res) => {
   messages.push({
